@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import Encriptar.MetodoBase64E;
 
 /**
  *
@@ -32,6 +33,10 @@ public class Encriptar {
         // Encriptar en MD5 y SHA
         System.out.println("Encriptacion en MD5 de ABCabc123: '"+MD5SHA1.md5("ABCabc123"));
         System.out.println("Encriptacion en SHA1 de ABCabc123: '"+MD5SHA1.sha1("ABCabc123"));
+        //Encriptar y Desencripta BASE64
+        MetodoBase64E mbe=new MetodoBase64E();
+        System.out.println(mbe.cifrarBase64("ABCabc123"));
+        System.out.println(mbe.descifrarBase64(mbe.cifrarBase64("ABCabc123")));
         // Encriptar en RSA
         if(args.length != 1) {
             System.out.println("Sintaxis: java RSA [tamaño de los primos]");
