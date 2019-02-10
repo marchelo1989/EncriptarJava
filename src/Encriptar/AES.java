@@ -17,7 +17,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class AES {
-    public void calcular(String texto,int bits) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+    public String calcular(String texto,int bits) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
         // Generamos una clave de 128 bits adecuada para AES
       KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
       keyGenerator.init(128);
@@ -31,7 +31,7 @@ public class AES {
       // posteriormente en la clase RSAAsymetricCrypto.java
 
       // Texto a encriptar
-//      String texto = "Este es el texto que queremos encriptar";
+      String encriptar="";
 
       // Se obtiene un cifrador AES
       Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -55,6 +55,7 @@ public class AES {
 
       // Texto obtenido, igual al original.
       System.out.println(new String(desencriptado));
+      encriptar = new String(desencriptado);
+      return encriptar;
    }
-    
 }
